@@ -87,3 +87,32 @@ papers.forEach(paper => {
   const p = new Paper();
   p.init(paper);
 });
+
+function nextPage() {
+  // Mendapatkan elemen tombol "No"
+  var noButton = document.getElementById('noButton');
+  
+  // Mendapatkan elemen tombol "Yes"
+  var yesButton = document.getElementById('yesButton');
+
+  // Mendapatkan ukuran layar
+  var screenWidth = window.innerWidth;
+  var screenHeight = window.innerHeight;
+
+  // Menghasilkan koordinat acak untuk tombol "No"
+  var randomX = Math.random() * (screenWidth - noButton.offsetWidth);
+  var randomY = Math.random() * (screenHeight - noButton.offsetHeight);
+
+  // Menetapkan posisi baru untuk tombol "No"
+  noButton.style.left = randomX + 'px';
+  noButton.style.top = randomY + 'px';
+
+  // Pindahkan tombol "Yes"
+  var newX = Math.random() * (screenWidth - yesButton.offsetWidth);
+  var newY = Math.random() * (screenHeight - yesButton.offsetHeight);
+  yesButton.style.left = newX + 'px';
+  yesButton.style.top = newY + 'px';
+
+  // Pindahkan ke halaman selanjutnya
+  window.location.href = "yes.html";
+}
